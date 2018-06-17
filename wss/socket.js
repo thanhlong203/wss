@@ -14,9 +14,9 @@ var bid_price= [];
 			var data = JSON.parse(msg.data).data;
 			for (var i = 0; i < data.length; i++) {
 				if (data[i].symbol == 'XBTU18') {
-					if (time_stamp.length > 30) time_stamp.remove(time_stamp[0]);
-					if (quote.length > 30) quote.remove(quote[0]);
-					if (bid_price.length > 30) bid_price.remove(bid_price[0]);
+					if (time_stamp.length > 30) time_stamp.splice(0, 1);
+					if (quote.length > 30) quote.splice(0, 1);
+					if (bid_price.length > 30) bid_price.splice(0, 1);
 					time_stamp.push(data[i].timestamp);
 					quote.push(data[i].askPrice);
 					bid_price.push(data[i].bidPrice);
